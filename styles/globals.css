@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main{
+    background-image: url("https://neo4j-documentation.github.io/developer-resources/language-guides/assets/img/neo4j_background3.gif");
+    background-position-x: 0px;
+    background-position-y: 0px;
+    background-size: initial;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-origin: initial;
+    background-clip: initial;
+}
