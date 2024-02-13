@@ -18,7 +18,7 @@ interface CustomerProfileProps {
   customers: Customer[];
 }
 
-const CustomerProfile: React.FC<CustomerProfileProps> = ({ customers }) => {
+const InActivityMap: React.FC<CustomerProfileProps> = ({ customers }) => {
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
 
   const handleCustomerClick = (customer: Customer) => {
@@ -41,4 +41,4 @@ const CustomerProfile: React.FC<CustomerProfileProps> = ({ customers }) => {
   );
 };
 
-export default CustomerProfile;
+export default InActivityMap;

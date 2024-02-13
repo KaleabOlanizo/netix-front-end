@@ -15,10 +15,10 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => {
       {/* Tabs */}
       <div className="flex">
         {tabs.map((tab) => (
-          <div className='relative mx-2'>
+          <div className='relative mx-2' id={tab.name}>
             <div
               key={tab.name}
-              className={`cursor-pointer p-3 px-6 hover:bg-gray-100 rounded-t-md ${
+              className={`cursor-pointer p-3 px-6 hover:bg-gray-200 hover:text-black rounded-t-md ${
                 activeTab === tab.name ? 'bg-gray-500 text-white border-black-200'
                   : 'bg-gray-100 text-black border-black-200'
               }`}

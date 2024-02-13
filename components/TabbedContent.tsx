@@ -15,10 +15,11 @@ const TabContentComponent: React.FC<TabContentComponentProps> = ({ activeTab }) 
       }, []);
     return (
         <div>
-        {activeTab === "Customer Profile" && <div><CustomerProfile customers={customers} /></div>}
-        {activeTab === "In Activity Prediction" && <div><CustomerProfile customers={customers} /></div>}
+        {activeTab === "Customer Profile" && <div><CustomerProfile customers={customers} tabName="Customer Profile" /></div>}
+        {activeTab === "In Activity Prediction" && <div><CustomerProfile customers={customers} tabName="In Activity Prediction" /></div>}
         {activeTab === "Fraude Predication" && <div>Content for Tab 3</div>}
         {activeTab === "Network Activity Prediction" && <div>Content for Tab 4</div>}
+        
         </div>
     );
 };

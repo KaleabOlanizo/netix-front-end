@@ -16,9 +16,10 @@ interface Customer {
 
 interface CustomerProfileProps {
   customers: Customer[];
+  tabName: string
 }
 
-const CustomerProfile: React.FC<CustomerProfileProps> = ({ customers }) => {
+const CustomerProfile: React.FC<CustomerProfileProps> = ({ customers, tabName }) => {
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
 
   const handleCustomerClick = (customer: Customer) => {
@@ -32,6 +33,7 @@ const CustomerProfile: React.FC<CustomerProfileProps> = ({ customers }) => {
         customers={customers}
         onCustomerClick={handleCustomerClick}
         selectedCustomer={selectedCustomer}
+        tabName = {tabName}
       />
 
       {/* Right side - Customer Details */}
