@@ -8,27 +8,29 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ logoSrc }) => {
   return (
-    <nav className="bg-gray-100 bg-opacity-10p-4 flex justify-between items-center">
+    <nav className="ml-6 bg-opacity-10p-4 flex justify-between items-center">
       {/* Left side - Logo */}
       <div className="flex items-center">
         <img src={logoSrc} alt="Logo" className="h-8 mr-2" />
       </div>
 
-      {/* Right side - Search bar and button */}
+      {/* Right side - Search bar and button 
+      
       <div className="flex items-center">
-        {/* Extended Search bar */}
+        
         <input
           type="text"
           placeholder="Search"
           className="border rounded-l px-2 py-1 focus:outline-none focus:border-gray-300"
           style={{ width: '600px' }} // Adjust the width as needed
         />
-
-        {/* Search button */}
         <button className="bg-green-700 text-white px-4 py-1 rounded-r">
           Search
         </button>
       </div>
+      
+      */}
+      
     </nav>
   );
 };

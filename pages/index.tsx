@@ -7,9 +7,14 @@ import TabContentComponent from '../components/TabbedContent'
 import Navbar from '../components/Navbar'
 
 const Home: NextPage = () => {
-  var tabs = ["Customer Profile", "In Activity Prediction", "Fraude Predication","Network Activity Prediction"]
+  var tabs : Tab[] = [
+    {name:"Customer Profile", notification:0},
+    {name:"In Activity Prediction", notification:6}, 
+    {name:"Fraude Predication", notification:0},
+    {name:"Network Activity Prediction", notification:0}
+  ]
   
-  const [activeTab, setActiveTab] = useState<string>(tabs[0]);
+  const [activeTab, setActiveTab] = useState<string>(tabs[0].name);
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);

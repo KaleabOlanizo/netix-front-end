@@ -15,9 +15,10 @@ const CustomerList: React.FC<CustomerListProps> = ({ customers, onCustomerClick,
         {customers.map((customer) => (
           <div
             key={customer.id}
-            className={`cursor-pointer p-4 mb-4 ${
-              selectedCustomer === customer ? 'bg-gray-200' : ''
-            } transition duration-300 ease-in-out transform hover:scale-105`}
+            className={`cursor-pointer p-4 mb-4 transition duration-300 ease-in-out transform hover:bg-gray-100 hover:scale-105 mb-4 border-b
+            ${
+              selectedCustomer === customer ? 'bg-gray-300' : ''
+            }`}
             onClick={() => onCustomerClick(customer)}
           >
             <div className="text-lg font-semibold">{customer.name}</div>
