@@ -17,7 +17,7 @@ const TabContentComponent: React.FC<TabContentComponentProps> = ({ activeTab }) 
         <div>
         {activeTab === "Customer Profile" && <div><CustomerProfile customers={customers} tabName="Customer Profile" /></div>}
         {activeTab === "In Activity Prediction" && <div><CustomerProfile customers={customers} tabName="In Activity Prediction" /></div>}
-        {activeTab === "Fraude Predication" && <div>Content for Tab 3</div>}
+        {activeTab === "Fraude Predication" && <div><CustomerProfile customers={customers} tabName="Fraude Predication" /></div>}
         {activeTab === "Network Activity Prediction" && <div>Content for Tab 4</div>}
         
         </div>

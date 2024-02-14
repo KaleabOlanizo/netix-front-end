@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Graph from 'react-graph-vis';
-import {baseCustomers, baseLinks} from '../json/sampleData';
+import {baseCustomers, baseLinks, actions} from '../json/sampleData';
 import SelectCustomerMessage from './SelectCustomerMessage';
+import { log } from 'console';
 
 interface GraphProps {
   selectedCustomer: Customer | null
@@ -13,10 +14,14 @@ const GraphVisualization: React.FC<GraphProps> = ({ selectedCustomer }) => {
   let events = {}
   
   if ( selectedCustomer){
+    console.log(selectedCustomer);
+    
     const linkedCustomerIds:Set<string> = new Set();
+    
     const links = [...baseLinks]
-
+    
     links.filter(link => link.source === (""+ (selectedCustomer?.id)) || link.target === (""+ (selectedCustomer?.id)));
+
     links.forEach(link => {
       if (link.source !== link.target){
         if (link.source === (""+selectedCustomer?.id)) {
@@ -26,8 +31,9 @@ const GraphVisualization: React.FC<GraphProps> = ({ selectedCustomer }) => {
         } 
       }
     });
-    
-    const nodes = baseCustomers.filter((customer) => linkedCustomerIds.has("" + customer.id))
+    console.log(linkedCustomerIds);
+    let nodes = baseCustomers.filter((customer) => linkedCustomerIds.has(""+ customer.id))
+    nodes.push(selectedCustomer)
 
     console.log(nodes);
     console.log(links);
@@ -35,8 +41,12 @@ const GraphVisualization: React.FC<GraphProps> = ({ selectedCustomer }) => {
     if ( graph.nodes || graph.edges ){
       graph = {}
     }
+    
     graph = {
-      nodes: nodes.map(node => ({ ...node, label: node.name })), // Add label to nodes
+      nodes: nodes.map(node => ({ ...node, 
+        label: node.name.split(" ")[0],
+        color: node.id === selectedCustomer.id ? "red" : "lightblue"
+      })),
       edges: links.map(link => ({ from: link.source, to: link.target, label: link.label })), // Add label to edges
     };
     options = {
@@ -61,7 +71,6 @@ const GraphVisualization: React.FC<GraphProps> = ({ selectedCustomer }) => {
   return (
     selectedCustomer && selectedCustomer.name ?
     <div className='flex'>
-      {selectedCustomer.name}
       <Graph key={selectedCustomer.id} graph={graph} options={options} events={events} style={{ height: '100%', width: '100%' }} />
     </div>
     : <SelectCustomerMessage />
